@@ -164,11 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function onOrientationChange(e) {
-  if (e.gamma > 0 ) {
-    moveRight()
-  } else if (e.gamma < 0) {
-  moveLeft()
-  }
+  doodlerLeftSpace = e.gamma
 }
 
 window.addEventListener("deviceorientation", onOrientationChange);
