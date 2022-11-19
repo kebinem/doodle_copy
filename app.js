@@ -164,7 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function onOrientationChange(e) {
-  alert(Math.round(e.gamma));
+  if (e.gamma > 0 ) {
+    moveRight()
+  } else if (e.gamma < 0) {
+  moveLeft()
+  }
 }
 
 window.addEventListener("deviceorientation", onOrientationChange);
