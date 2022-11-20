@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", control);
   }
 
-  function start() {
+    function start() {
     if (!isGameOver) {
       createPlatforms();
       createDoodler();
@@ -156,15 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
       jump();
       document.addEventListener("keydown", control);
       document.addEventListener("keyup", stop);
+      window.addEventListener("deviceorientation", onOrientationChange);
     }
+  }
+
+  function onOrientationChange(e) {
+    doodlerLeftSpace += Math.round(e.gamma);
   }
 
   //attach to button
   start();
 });
-
-function onOrientationChange(e) {
-  doodlerLeftSpace = e.gamma + 'px'
-}
-
-window.addEventListener("deviceorientation", onOrientationChange);
