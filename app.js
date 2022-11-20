@@ -161,7 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function onOrientationChange(e) {
-    alert(e.gamma);
+    doodlerLeftSpace += e.gamma;
+        doodler.style.left = doodlerLeftSpace + "px";
   }
 
   //attach to button
