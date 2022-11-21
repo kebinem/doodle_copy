@@ -161,7 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function onOrientationChange(e) {
-    doodlerLeftSpace += e.gamma;
+    if (doodlerLeftSpace > 0 && doodlerLeftSpace < 400)
+    doodlerLeftSpace += e.gamma / 2;
         doodler.style.left = doodlerLeftSpace + "px";
   }
 
