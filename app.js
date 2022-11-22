@@ -141,6 +141,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 30);
   }
+  
+    // control on telefon
+
+  function onOrientationChange(e) {
+    if (doodlerLeftSpace > 0 && doodlerLeftSpace < 340) {
+      doodlerLeftSpace += Math.round(e.gamma) / 2;
+      doodler.style.left = doodlerLeftSpace + "px";
+    } else if (doodlerLeftSpace <= 0) {
+      doodlerLeftSpace = 1;
+    } else if (doodlerLeftSpace >= 340) {
+      doodlerLeftSpace = 339;
+    }
+  }
 
   function stop() {
     clearInterval(leftTimerId);
@@ -159,10 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener("deviceorientation", onOrientationChange);
     }
   }
-
-  function onOrientationChange(e) {
-    doodlerLeftSpace += e.gamma / 2;
-        doodler.style.left = doodlerLeftSpace + "px";}
 
   //attach to button
   start();
